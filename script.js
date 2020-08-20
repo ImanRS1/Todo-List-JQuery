@@ -50,11 +50,18 @@ function addRegretButton(){
 }
 
 
-function donePressed(event){
+/* function donePressed(event){
     let thisDoneItem = event.target.parentElement;
     thisDoneItem.innerHTML += addRegretButton();
     thisDoneItem.children[3].remove();
     doneList.appendChild(thisDoneItem);
+} */
+
+function donePressed(event){
+    let thisDoneItem = $(event.target).parent();
+    thisDoneItem.append(addRegretButton());
+    $(thisDoneItem).children().eq(3).remove();
+    doneList.append(thisDoneItem);
 }
 
 function regretPressed(event){
