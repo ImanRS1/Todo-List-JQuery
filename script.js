@@ -64,12 +64,21 @@ function donePressed(event){
     doneList.append(thisDoneItem);
 }
 
-function regretPressed(event){
+/* function regretPressed(event){
     let thisTodoItem = event.target.parentElement;
     thisTodoItem.innerHTML += addDoneButton();
     thisTodoItem.children[3].remove();
     todoList.appendChild(thisTodoItem);
+} */
+
+function regretPressed(event){
+    let thisTodoItem = $(event.target).parent();
+    thisTodoItem.append(addDoneButton());
+    $(thisTodoItem).children().eq(3).remove();
+    todoList.append(thisTodoItem);
+    
 }
+
 
 function changePressed(event){
     let currentTodoItem = event.target;
