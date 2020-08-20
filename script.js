@@ -7,16 +7,25 @@ let doneList = $("#donePart");
 let todoList = $("#todoPart");
 
 
-
+/* 
 initPart.addEventListener('submit', function(e){
     e.preventDefault();
-    //let addedInput = document.getElementById("initialInput");
-    let addedInput = $("#initialInput");
-    if(addedInput.val() == ""){
+    let addedInput = document.getElementById("initialInput");
+    
+    if(addedInput.value == ""){
         return alert("You cannot add empty to do items.");
     }
     addTodoItem(addedInput.value);
     document.getElementById("initialInput").value = "";
+}); */
+
+initPart.on("submit", function(e){
+    e.preventDefault();
+    if($("#initialInput").val() == ""){
+        return alert("You cannot add empty to do items.");
+    }
+    addTodoItem($("#initialInput").val());
+    $("#initialInput").val("");
 });
 
 function addTodoItem(theItem){
