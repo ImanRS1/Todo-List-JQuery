@@ -98,12 +98,23 @@ function changePressed(event){
     } 
 }
 
-function emptyInputError(thisChangedItem){
+
+
+/* function emptyInputError(thisChangedItem){
     thisChangedItem.setAttribute("id", "alertItem");
     thisChangedItem.value = "Add a task or remove the line";
     thisChangedItem.setAttribute("value", "Add a task or remove the line");
     alert("You cannot empty the todo task. Fill it in or remove it completely");
     return thisChangedItem.setAttribute("readonly", "readonly");
+} */
+
+function emptyInputError(thisChangedItem){
+    $(thisChangedItem).attr("id", "alertItem");
+    $(thisChangedItem).val("Add a task or remove the line");
+    $(thisChangedItem).attr("value", "Add a task or remove the line");
+    alert("You cannot empty the todo task. Fill it in or remove it completely");
+    return $(thisChangedItem).attr("readonly", "readonly");
+
 }
 
 function removePressed(event){    
