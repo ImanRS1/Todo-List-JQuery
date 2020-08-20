@@ -114,17 +114,30 @@ function emptyInputError(thisChangedItem){
     $(thisChangedItem).attr("value", "Add a task or remove the line");
     alert("You cannot empty the todo task. Fill it in or remove it completely");
     return $(thisChangedItem).attr("readonly", "readonly");
-
 }
 
-function removePressed(event){    
+/* function removePressed(event){    
     event.target.parentElement.remove();
+} */
+
+function removePressed(event){
+    $(event.target).parent().remove();    
 }
+
+/* function makeInputFieldPulse(thisChangedItem){
+    thisChangedItem.setAttribute("id", "pulser");
+} */
 
 function makeInputFieldPulse(thisChangedItem){
-    thisChangedItem.setAttribute("id", "pulser");
+    $(thisChangedItem).attr("id", "pulser");
 }
 
-function stopInputFieldPulse(thisChangedItem){
+
+/* function stopInputFieldPulse(thisChangedItem){
     thisChangedItem.removeAttribute("id", "pulser");
+}
+ */
+
+function stopInputFieldPulse(thisChangedItem){
+    $(thisChangedItem).removeAttr("id", "pulser");
 }
