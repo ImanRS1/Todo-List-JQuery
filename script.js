@@ -33,7 +33,14 @@ initPart.on("submit", function(e){
 } */
 
 function addTodoItem(theItem){
-    return todoList.append("<li><input type='text' readonly='readonly' value= '" + theItem + "'>" + "</input>" + addChangeButton() + addRemoveButton()  + addDoneButton() +"</li>");
+    let animateThis = "<li><input type='text' readonly='readonly' value= '" + theItem + "'>" + "</input>" + addChangeButton() + addRemoveButton()  + addDoneButton() +"</li>";
+
+    $(todoList).append("<li><input type='text' readonly='readonly' value= '" + theItem + "'>" + "</input>" + addChangeButton() + addRemoveButton()  + addDoneButton() +"</li>").fadeIn(2000, function() {
+        //todoList.append("<li><input type='text' readonly='readonly' value= '" + theItem + "'>" + "</input>" + addChangeButton() + addRemoveButton()  + addDoneButton() +"</li>");    
+    }); 
+
+
+    //return todoList.append("<li><input type='text' readonly='readonly' value= '" + theItem + "'>" + "</input>" + addChangeButton() + addRemoveButton()  + addDoneButton() +"</li>");
 }
 
 function addChangeButton(){
@@ -79,8 +86,8 @@ function regretPressed(event){
     
 }
 
-
 function changePressed(event){
+    
     let currentTodoItem = event.target;
     let thisChangedItem = currentTodoItem.parentElement.firstElementChild;    
     if(thisChangedItem.hasAttribute("readonly")){
@@ -97,6 +104,27 @@ function changePressed(event){
         return thisChangedItem.setAttribute("readonly", "readonly");
     } 
 }
+
+
+/* 
+function changePressed(event){
+    let thisChangedItem = $(event.target).parent().first();
+    var attr = $(thisChangedItem).attr("readonly");
+
+    if (typeof attr !== typeof undefined && attr !== false) {
+        makeInputFieldPulse(thisChangedItem);
+        return $(thisChangedItem).removeAttr("readonly");
+    }else{
+        stopInputFieldPulse(thisChangedItem);
+        if($(thisChangedItem).val() == ""){
+            return emptyInputError(thisChangedItem);
+        }
+        $(thisChangedItem).removeAttr("id", "alertItem");
+        let changedFieldValue = $(thisChangedItem).val();
+        $(thisChangedItem).attr("value", changedFieldValue);
+        return $(thisChangedItem).attr("readonly", "readonly");
+    }
+} */
 
 
 
@@ -121,7 +149,9 @@ function emptyInputError(thisChangedItem){
 } */
 
 function removePressed(event){
-    $(event.target).parent().remove();    
+    $(event.target).parent().fadeOut(1000, function() {
+        $(event.target).parent().remove();    
+    }); 
 }
 
 /* function makeInputFieldPulse(thisChangedItem){
