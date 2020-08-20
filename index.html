@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>To do list</title>
+</head>
+<body>
+    <div id="paper">
+        <div id="pattern">
+                <h1 id="mainHeader">My Todo list</h1>
+                
+            <div id="content">
+                <form id="initPart">
+                        <input type="text" id="initialInput" placeholder="Write your task here..." size="51%">
+                        <input type="submit" id="submitButton" value="Add task">
+                </form>
+                                
+                <h2 id="todoHeader">To do</h2>
+                    <ul id="todoPart"></ul>         
+
+                <h2 id="doneHeader">Done</h2>
+                    <ul id="donePart"></ul>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
+
+</html>
