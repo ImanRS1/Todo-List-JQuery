@@ -86,6 +86,9 @@ function regretPressed(event){
     
 }
 
+
+
+
 function changePressed(event){
     
     let currentTodoItem = event.target;
@@ -106,25 +109,6 @@ function changePressed(event){
 }
 
 
-/* 
-function changePressed(event){
-    let thisChangedItem = $(event.target).parent().first();
-    var attr = $(thisChangedItem).attr("readonly");
-
-    if (typeof attr !== typeof undefined && attr !== false) {
-        makeInputFieldPulse(thisChangedItem);
-        return $(thisChangedItem).removeAttr("readonly");
-    }else{
-        stopInputFieldPulse(thisChangedItem);
-        if($(thisChangedItem).val() == ""){
-            return emptyInputError(thisChangedItem);
-        }
-        $(thisChangedItem).removeAttr("id", "alertItem");
-        let changedFieldValue = $(thisChangedItem).val();
-        $(thisChangedItem).attr("value", changedFieldValue);
-        return $(thisChangedItem).attr("readonly", "readonly");
-    }
-} */
 
 
 
