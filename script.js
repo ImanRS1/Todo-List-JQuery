@@ -28,8 +28,12 @@ initPart.on("submit", function(e){
     $("#initialInput").val("");
 });
 
-function addTodoItem(theItem){
+/* function addTodoItem(theItem){
     return document.getElementById("todoPart").innerHTML += "<li><input type='text' readonly='readonly' value= '" + theItem + "'>" + "</input>" + addChangeButton() + addRemoveButton()  + addDoneButton() +"</li>";
+} */
+
+function addTodoItem(theItem){
+    return todoList.append("<li><input type='text' readonly='readonly' value= '" + theItem + "'>" + "</input>" + addChangeButton() + addRemoveButton()  + addDoneButton() +"</li>");
 }
 
 function addChangeButton(){
